@@ -1,0 +1,28 @@
+# 簡單的聊天機器人
+
+import datetime  # 匯入 datetime 模組以獲取當前時間
+
+# 步驟 1: 定義機器人的回應
+def chat_response(user_input):
+    if "你好" in user_input:
+        return "你好！今天過得怎麼樣？"
+    elif "天氣" in user_input:
+        return "我不知道具體的天氣，但希望你有個好天氣！"
+    elif "時間" in user_input:
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")  # 獲取當前時間
+        return f"現在的時間是 {current_time}。"
+    elif "再見" in user_input:
+        return "再見！期待下次聊天！"
+    else:
+        return "抱歉，我不太明白你在說什麼。"
+
+# 步驟 2: 開始聊天
+print("歡迎來到聊天機器人！輸入 '再見' 以結束對話。")
+
+while True:
+    user_input = input("你：")  # 獲取使用者的輸入
+    response = chat_response(user_input)  # 獲取機器人的回應
+    print("機器人：" + response)  # 顯示機器人的回應
+
+    if user_input == "再見":
+        break  # 結束迴圈
